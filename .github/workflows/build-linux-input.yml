@@ -1,0 +1,68 @@
+# .github/workflows/build-linux-input.yml
+name: Build Linux Input
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'linux-input/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install 32-bit Wine + winemaker
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt update
+          sudo apt install -y wine wine32 wine64
+
+      - name: Build
+        working-directory: linux-input
+        run: |
+          winemaker -iws2_32 -ievdev . --single-target linux-input
+          make
+
+      - name: Copy to resources
+        run: cp linux-input/linux-input.exe.so resources/linux-input.exe.so
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-input
+          path: resources/linux-input.exe.so   
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'linux-input/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install 32-bit Wine + winemaker
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt update
+          sudo apt install -y wine wine32 wine64
+
+      - name: Build
+        working-directory: linux-input
+        run: |
+          winemaker -iws2_32 -ievdev . --single-target linux-input
+          make
+
+      - name: Copy to resources
+        run: cp linux-input/linux-input.exe.so resources/linux-input.exe.so
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-input
+          path: resources/linux-input.exe.so   
