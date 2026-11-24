@@ -1,9 +1,9 @@
 {
-	"geode": "4.0.0",
+	"geode": "5.3.0",
 	"gd": {
-		"win": "2.2074"
+		"win": "2.2081"
 	},
-	"version": "v1.3.0",
+	"version": "v1.4.0",
 	"id": "syzzi.click_between_frames",
 	"name": "Click Between Frames",
 	"developer": "syzzi",
@@ -96,7 +96,7 @@
 		},
 		"wine-workaround": {
 			"name": "Wine Workaround",
-			"description": "Wine doesn't let you get keyboard input between frames, so this is a workaround. However, it may not work properly on some PCs.\n\nOnly disable if experiencing issues (and don't play with keyboard if you disable it).",
+			"description": "Wine doesn't let you get keyboard input between frames, so this is a workaround. However, it may not work properly on some PCs.\n\nOnly disable if experiencing issues.",
 			"type": "bool",
 			"default": true,
 			"requires-restart": true,
