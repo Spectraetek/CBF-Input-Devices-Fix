@@ -1,7 +1,7 @@
 {
-	"geode": "4.0.0",
+	"geode": "5.0.0",
 	"gd": {
-		"win": "2.2074"
+		"win": "2.2081"
 	},
 	"version": "v1.3.0",
 	"id": "syzzi.click_between_frames",
